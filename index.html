@@ -82,7 +82,7 @@
 
         
             <div class="box"><figure>
-                <a href="/"><img src="media/ybaLarge.png" alt="You've Been Audited Splash Art"></a>
+                <a href="https://milkdiverdev.itch.io/youve-been-audited"><img src="media/ybaLarge.png" alt="You've Been Audited Splash Art"></a>
                 <figcaption>
                     <b>You've Been Audited</b> is a tax-evasion tower defense game where the player must defend their personal safe from invading IRS agents!
                 </figcaption>
@@ -90,13 +90,13 @@
             <div class="box"><figure>
                 <a href="https://docs.google.com/presentation/d/1LYW8G9aNVS5VMDzyEURl3AvW8GQlbEYtTwmVyFbqnFw/edit#slide=id.g32ce1b4878e_3_20"><img src="media/cat_loaf_large.png" alt="Pawstries"></a>
                 <figcaption>
-                    <b>Pawstries</b>
+                    <b>Pawstries</b> is a fully-fledged game concept in which players operate a bakery, baking pastries that come to life as animals! Utilizing a barcode scanning feature and forgiving gacha systems, this cozy experience will leave players feeling all warm and fuzzy inside!
                 </figcaption>
             </figure></div>
             <div class="box"><figure>
                 <a href="https://docs.google.com/document/d/14l79D1PSdVrZP4FCfZEc9QftWLWBPH2fPf6j7xqcXvM/edit?usp=sharing"><img src="media/rogue-herb.png" alt="Rogue Herbology"></a>
                 <figcaption>
-                    <b>Rogue Herbology</b>
+                    <b>Rogue Herbology</b> is a tabletop card game where 2-5 players take on the role of an herbologist's apprentices, using spells to discover and collect plants, vying to be the Golden Apprentice!
                 </figcaption>
                 
             </figure></div>
@@ -104,13 +104,13 @@
                 <figcaption>
                     <b>Chum</b> is an alpha-stage fishing game inspired by "Ridiculous Fishing", in which the player must catch as many fish as possible, then upon returning to the surface, shoot the fish that are launched into the sky!
                 </figcaption>
-                <a href="/"><img src="media/fishermanLarge.png" alt="You've Been Audited Splash Art"></a>
+                <a href="https://youtu.be/Vrpp04EQ2Oo"><img src="media/fishermanLarge.png" alt="You've Been Audited Splash Art"></a>
                 
             </figure></div>
             <div class="box"><figure>
                 <a href="https://milkdiver.github.io/MilkDiverArchive/project3/"><img src="media/slimemold.png" alt="Slime Mold"></a>
                 <figcaption>
-                    <b>Slime Mold</b>
+                    <b>Slime Mold</b> is a randomized web simulation of a slime mold in a petri dish! Users can generate custom, randomized maze patterns with the ever-changing mold!
                 </figcaption>
             </figure></div>
             <div class="box"><figure>
@@ -128,7 +128,7 @@
             <div class="box"><figure>
                 <a href="https://milkdiver.github.io/MilkDiverArchive/Unity%20Projects/Project_03/"><img src="media/Forklift.png" alt="Forklift Certified"></a>
                 <figcaption>
-                    <b>Forklift Certified</b>
+                    <b>Forklift Certified</b> is a rough-and-ready, drifting simulator where the player must drive an unwieldly forklift on uneven terrain through an endless set of randomly-spawning goalposts!
                 </figcaption>
             </figure></div>
             <div class="box"><figure>
@@ -144,16 +144,13 @@
                 </figcaption>
             </figure></div>
             <div class="box"><figure>
-                <a href="https://www.curseforge.com/minecraft/modpacks/d-d-homebrew"><img src="media/homebrew.png" width="100px" alt="D&D Homebrew"></a>
                 <figcaption>
-                    <b>D&D Homebrew</b>
+                    <b>D&D Homebrew</b> is the ultimate D&D themed modpack with over 2.5k downloads! With monsters, scenic views, and endless dungeons, everyone can form their own adventure! For countless hours, you can raid dungeons, slay creatures, and build mighty kingdoms in this epic experience!
                 </figcaption>
+                <a href="https://www.curseforge.com/minecraft/modpacks/d-d-homebrew"><img src="media/homebrew.png" width="100px" alt="D&D Homebrew"></a>
             </figure></div>
 
         </div>
-
-        <div id="lightbox" popover></div>
-        <!-- don't get rid of this div, even though it looks empty - this is what makes your image lightbox work! -->
 
 
     </main>
@@ -174,17 +171,8 @@
 
 </body>
 
-<!-- this bit is what makes the image lightbox work! -->
 <script>
-    const popover = document.getElementById("lightbox");
-
-    $('#gallery img').click(function (e) {
-        var image_src = $(this).attr("src");
-        $(this).attr('popovertarget', 'lightbox');
-        $('#lightbox').html('<img src="' + image_src + '" />');
-        popover.showPopover();
-        $('#lightbox').append('<button popovertarget="lightbox" popovertargetaction="hide">x</button>');
-    });
+    
 </script>
 
 </html>
