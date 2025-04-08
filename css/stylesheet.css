@@ -1,260 +1,297 @@
-html {
-    font-family: sans-serif;
-    font-size:large;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(199, 199, 199)
+:root {
+    /* if you want to keep it super simple, you can edit these top variables (variables = the things that start with --) to add some style and leave the rest of the code alone! */
+
+    /* colors */
+    --text: #e5e6e5;
+    --background: #020501;
+    --accent-dark: #3aac8f;
+    --accent: #34e1ff;
+    --accent-light: rgb(175, 225, 245);
+
+    /* fonts */
+    --basefont: courier new;
+    --titlefont: monospace;
+    --text-size: 20px;
+
+    /* gallery styling */
+    --minimum-img-width: 200px;
+    --maximum-img-width: 400px;
+    --maximum-columns: 3;
+    --image-background: var(--background);
+    --column-gap: var(--spacing);
+
+    /* misc styling */
+    --max-width: 800px;
+    --spacing: 15px;
+    --border-radius: 4px;
+    --underline: wavy var(--accent-light);
+    --border: dashed var(--accent) 1px;
+
+    /* calculations - don't worry about this */
+    --halfspacing: calc(var(--spacing) / 2);
+    --doublespacing: calc(var(--spacing) * 2)
 }
 
-
-#wrapper{
-    display: grid;
-    height: 100vh;
-    grid-template-areas:"navbar"
-                        "logo"
-                        "title"
-                        "content";
-    max-width: 1200px;
-    grid-template-rows: 1fr 2fr 1fr 2fr;
-    margin-left:12%;
-    margin-right:8%;
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+    scrollbar-color: var(--accent);
+    -ms-overflow-style: none;
+    box-decoration-break:clone
 }
 
-#logo{
-    grid-area: logo;
-    padding:1em;
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: var(--spacing) 5%;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--basefont);
+    font-size: var(--text-size);
+    line-height: 1.5em;
 }
 
-#titleWrapper{
-    grid-area: title;
-    padding:1em;
+h1:has(+ nav) {
+    margin-bottom: var(--halfspacing)
 }
 
-#titleWrapper>img{
-    width: 70vw;
-    height: auto;
+header {
+    text-align: center;
+    padding-bottom: var(--spacing);
 }
 
-#titleWrapper>h1{
-    margin-top: -50px;
-    font-size:3vw;
+nav {
+    padding-top: var(--spacing)
 }
 
-footer{
-    grid-area: footer;
-    padding:1em;
+main, header, footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
-#navBar{
-    grid-area: navbar;
-    padding:1vw;
-    width: 93vw;
-}
-
-ul.menu { 
-    grid-area: menu;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.menu a {
+footer {
     display: block;
-    background: gray;
-    padding: 10px;
-    color: white;
+    text-align: center;
+    font-size: .9em;
+    margin: var(--spacing) auto;
+}
+
+/* element styling */
+a {
+    color: var(--accent);
+    text-decoration: underline var(--underline);
+    text-underline-offset:.15em
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+nav a {
+    padding: 5px;
+    margin: 5px;
+}
+
+#to-top a {
+    position: fixed;
+    right: var(--spacing);
+    bottom: var(--spacing);
+    font-size: 50px;
     text-decoration: none;
-    transition: transform 0.1s ease-in, background-color 0.5s linear;
+    color: var(--accent-light);
 }
 
-.menu li {
-    width: 25%;
+b {
+    color: var(--accent-dark)
 }
 
-ul.menu ul li {
-    width:100%;
+i {
+    color: var(--accent)
 }
 
-ul.menu ul {
-    display:none;
+mark {
+    background-color: var(--accent-light);
+    padding: 1px 2px;
+    border-radius:var(--border-radius)
 }
 
-ul.menu li:hover ul {
-    display:flex;
+code {
+    font-size:.9em;
+    padding:1px 3px;
+    font-family:monospace;
+    color:var(--accent-dark)
 }
 
-
-.menu .submenu>a:after {
-    content: "+";
-    padding-left:5px;
+u {
+    text-decoration-color: var(--accent-dark)
+}
+ol, ul {
+    margin:var(--spacing);
+}
+li {
+    padding-left:var(--halfspacing);
+    margin:var(--halfspacing) auto;
+}
+li > ul {
+    padding-left: var(--spacing);
+    margin:auto;
+    font-size:.9em;
+}
+li::marker {
+    color: var(--accent);
+}
+blockquote {
+    padding-left:var(--doublespacing);
+    margin:var(--doublespacing);
+    border-left: var(--border);
+    color:var(--accent-dark)
 }
 
-#contentList {
-    margin-left: -14vw;
-    padding-top: 10%;
-    grid-area: content; 
-    padding:1em;
-    display: grid;
-    grid-template-columns: repeat(11, 100px);
-    grid-template-rows: repeat(11, 100px);
-    gap:1.2em;
-    justify-content: center;
-
+hr {
+    width: 100%;
+    border: none;
 }
 
-.block, .blockMulti, .blockText{
-    background-color: rgb(105, 154, 177);
+img {
+   vertical-align: middle;
+   max-width:100%;
 }
 
-.contentText{
-    padding: 1em;
-}
-
-.blockImg{
-    padding: 1em;
-}
-
-#block1 {
-    grid-column: 7/span 4;
-    grid-row: 1/span 2;
-}
-
-#block1>.contentText{
-    margin-top: -45px;
-    font-size: x-large;
-}
-
-#block1>.blockImg>img{
-    float:right;
-}
-
-#block2 {
-    grid-column: 1/span 4;
-    grid-row: 3/span 2;
-    background-color: rgb(80, 117, 134);
-}
-
-#block2>a>.blockImg>img{
-    margin-top: -12px;
-    margin-left: -15px;
-    width: 90%;
-}
-
-#block3 {
-    grid-column: 8/span 3;
-    grid-row: 3/span 2;
-    background-color: rgb(80, 117, 134);
+/* boxes & flex */
+.box {
+    padding: var(--spacing);
+    border: var(--border);
+    margin: var(--spacing) auto;
+    border-radius: var(--border-radius);
+    break-inside:avoid;
 }
 
 
-#block4 {
-    grid-column: 1/span 3;
-    grid-row: 5/span 3;
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--halfspacing) var(--spacing)
 }
 
-#block4>a>.blockImg>img{
+.flex > * {
+    flex: 1 2 200px;
+    margin:0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+/* dividing lines between areas */
+hr::after,
+nav::after,
+footer::before {
+    content: "\a0 \a0";
+    text-align-last: justify;
     width: 50%;
-    float: right;
+    margin: var(--spacing) auto;
+    display: table;
+    text-decoration: underline var(--underline);
+    text-decoration-thickness: .1em
 }
 
-#block4>.contentText{
-    margin-top:100px;
+/* headers */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--titlefont);
+    margin: 1.5em auto;
+    text-align: center;
+    line-height: 1.3em;
 }
 
-#block5 {
-    grid-column: 7/span 4;
-    grid-row: 5/span 2;
+h1 {
+    font-size: 2em;
+    
 }
-
-#block5>a>.blockImg>img{
-    float:right;
-}
-
-#block6 {
-    grid-column: 7/span 4;
-    grid-row: 7/span 2;
-}
-
-#block6>a>.blockImg>img{
-    width: 50%;
-    float: right;
-}
-
-#block7 {
-    grid-column: 1/span 2;
-    grid-row: 8/span 3;
-}
-
-#block7>a>.blockImg>img{
-    width: 50%;
-    float:right;
-}
-
-#block7>.contentText{
-    margin-top: 15px;
-}
-
-#block8 {
-    grid-column: 6/span 5;
-    grid-row: 9/span 2;
-}
-
-#block9 {
-    grid-column: 5/span 3;
-    grid-row: 3/span 2;
-    background-color: rgb(80, 117, 134);
-}
-
-#block10 {
-    grid-column: 4/span 3;
-    grid-row: 5/span 3;
-}
-
-#block11 {
-    grid-column: 3/span 3;
-    grid-row: 8/span 2;
-}
-
-#block12 {
-    grid-column: 3/span 3;
-    grid-row: 10/span 1;
-}
-
-#bluebox{
-    grid-column: 6/span 1;
-    grid-row: 8/span 1;
-}
-
-#introSpacer{
-    grid-column: 1/span 6;
-    grid-row: 1/span 2;
-    background-color: rgb(128, 166, 184);
-}
-
-@media screen and (max-width: 760px) {
-    #wrapper {
-        grid-template-rows: 1fr 10fr 1fr;
-        grid-template-columns: 20% 1fr 20%;
-        grid-template-areas: "logo navbar navbar"
-                            "title title title"
-                            "content content content";
-        margin-left: 1vw;
+   h1 a {
+      text-decoration: none;
+      color:var(--accent);
     }
-    #logo>img{
-       width: 100%;
-    }
-    #titleWrapper>h1{
-        margin-top: -25px;
-    }
-    #contentList {
-        grid-area: content; 
-        padding:1em;
-        display: flex;
-        justify-content: center;
-        flex-wrap:wrap;
-        margin-left: auto;
-    }
+
+h2 {
+    font-size: 1.5em;
+    margin: 1em auto;
+    color: var(--accent);
+
 }
+
+h3 {
+    color: var(--background);
+    background: var(--accent)
+}
+
+h4 {
+    color: var(--accent-dark);
+    background: var(--accent-light);
+    font-weight: normal;
+}
+
+/* image gallery */
+#gallery {
+    margin: var(--doublespacing) auto;
+    display: block;
+    text-align: center;
+    line-height: 1.2em;
+    font-size: .9em;
+}
+#gallery.columns {
+    columns: var(--minimum-img-width) var(--maximum-columns);
+    gap: var(--column-gap);
+}
+
+#gallery img {
+    margin: var(--spacing) auto;
+    max-width: min(var(--maximum-img-width), 100%);
+    display:block;
+    background-color:var(--image-background)
+}
+
+figure {
+    margin: var(--spacing) auto;
+    break-inside: avoid;
+}
+
+/* lightbox */
+#gallery img:hover {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    outline: var(--border);
+}
+
+#lightbox {
+    border: none;
+    outline: none;
+}
+#lightbox img {
+  max-height:90vh;
+  max-width:90vw;
+}
+
+::backdrop {
+    backdrop-filter: blur(2px) brightness(80%);
+}
+
+#gallery:has(~ #lightbox:popover-open) {
+    pointer-events: none;
+}
+/* makes the lightbox work on small screens, like phones */
+@media only screen and (min-width: 600px) {
+    #lightbox button {
+        display: none;
+    }
+} 
+@media only screen and (max-width: 600px) {
+    #lightbox button {
+        display: block;
+        width:30px;
+        height:30px;
+        margin:10px auto;
+    }
+} 
