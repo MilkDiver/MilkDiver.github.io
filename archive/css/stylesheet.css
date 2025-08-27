@@ -77,8 +77,7 @@ footer {
 /* element styling */
 a {
     color: var(--accent);
-    text-decoration: underline var(--underline);
-    text-underline-offset:.15em
+    text-decoration: none;
 }
 
 a:hover {
@@ -88,6 +87,7 @@ a:hover {
 nav a {
     padding: 5px;
     margin: 5px;
+    font-weight: bold;
 }
 
 #to-top a {
@@ -162,7 +162,23 @@ img {
     margin: var(--spacing) auto;
     border-radius: var(--border-radius);
     break-inside:avoid;
+
+    .details{
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.85s ease, max-height 0.9s ease;
+        text-align: left;
+    }
 }
+
+.box:hover {
+    .details{
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
 
 
 .flex {
@@ -291,5 +307,11 @@ figure {
         width:30px;
         height:30px;
         margin:10px auto;
+    }
+    .box {
+        .details {
+            opacity: 1;
+            max-height: 1000px;
+        }
     }
 } 
