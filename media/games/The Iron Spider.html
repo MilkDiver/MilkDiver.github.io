@@ -147,7 +147,7 @@ being here.]
 (link: &quot;Open the locker&quot;)[Within the locker is a stationary radio, a handheld pickaxe, and an additional set of clothes.
 [[Use the radio]]]
 (if:visits &gt;= 2)[(link: &quot;Look around the room again&quot;)[A thin, dull room, with a bed, and a locker. Despite the circumstances, you expected worse. It’s certainly better than some of your prior living conditions.]]
-
+(if:(history: where its name contains &quot;Sit on the bed for a moment&quot;)&#39;s length is 0)[[Sit on the bed for a moment]]
 [[Leave the room-&gt;You&#39;re alone now.]]</tw-passagedata><tw-passagedata pid="12" name="Think of the water supply" tags="" position="900,725" size="100,100">(set:$worryFilter to true)
 You figure that there’s a small tank of water loaded into the Spider, and the water that slowly drips from the leaking faucet agrees with you. As for filtering…? You shudder at the thought.
 
@@ -226,6 +226,8 @@ You mumble back a response. He ignores you, and continues speaking.
 You squint off the last bit of sleep, and attempt to inquire. He interrupts you again.
 
 (align:&quot;=&gt;&lt;=&quot;)[“Here’s what you’re gonna do, rat. Now listen close because I’m not repeating shit. Your rig is going to enter the cavern, and it should stop automatically upon entering the cavern to cool down. You’re gonna find some oil, get out, and lube the damn thing. Back left leg. That is all. Remember, if it ain’t broke, don’t fucking touch it.”]
+
+He seems impatient. Better to not press your luck.
 
 [[Ask about where to find oil]]
 [[Acknowledge your task.]]</tw-passagedata><tw-passagedata pid="25" name="Ask about where to find oil" tags="" position="575,1825" size="100,100">(set:$oilAsked to true)(if:$FMFavor &lt;= 0)[
@@ -344,7 +346,7 @@ You take a second to breathe.
 (link: &quot;An Iron Spider?&quot;)[You remember the refinery manager discussing the worker lottery for these rigs. Life in Paradise, they claimed, for the price of operating a cargo mining vessel all the way there. Those vessels were called the Iron Spiders, which you didn&#39;t think all that much of, but now seeing one, it&#39;s pretty obvious why. A gigantic mechanical cylinder with six robotic legs and a drill placed in the front.
 (link: &quot;Spiders have eight legs, not six.&quot;)[Yeah, well, when you initially pointed this fact out to one of the maintenance workers, you got hit pretty hard. So, you figure they probably just like the name.]]
 
-(link: &quot;Ready?&quot;)[Okay, deep breath. You know the risks. You know not all the Spiders make it to Paradise. You have to &#39;&#39;keep a sane mind&#39;&#39; and &#39;&#39;make smart decisions&#39;&#39; if you want to survive. It //might// help to &#39;&#39;be cooperative&#39;&#39;, too. Bossman seems like a tool, but, you might need tools.
+(link: &quot;Ready?&quot;)[Okay, deep breath. You know the risks. You know not all the Spiders make it to Paradise. You have to &#39;&#39;keep a sane mind&#39;&#39; and &#39;&#39;make smart decisions&#39;&#39; if you want to survive. It &#39;&#39;//might//&#39;&#39; help to &#39;&#39;be cooperative&#39;&#39;, too. Bossman seems like a tool, but, you might need tools.
 [[Look around you.-&gt;You&#39;re alone now.]]]</tw-passagedata><tw-passagedata pid="48" name="Think about the cuffs." tags="" position="900,2200" size="100,100">(set:$sanity to $sanity-1)
 Your mind flashes as you remember the shreds of rotted flesh that peeked from beneath your iron cuffs. The stench of your own body decaying upon you. Those cuffs had been on your wrists for nearly a month by that point. You remember feeling the grit that would sift its way into the open wounds, grinding your raw flesh into deeper lacerations. You can still feel the scorch of having them on. You shudder. You can&#39;t think of this anymore.
 
@@ -487,6 +489,8 @@ There&#39;s no going back.&#39;&#39;
 
 [[Head towards Paradise.]]
 [[Head towards the surface.]]]</tw-passagedata><tw-passagedata pid="70" name="Head towards the surface." tags="" position="600,6100" size="100,100">You adjust your course towards the surface. Your adrenaline rushes. You’re headed to freedom.
+
+(if:$FMFavor &gt; 1)[You weren&#39;t the first to choose this. Someone, somewhere, turns a blind eye to your course readings.]
 
 (if:$sanity &gt; 0)[
 (if:$rebellion &gt; 3)[
@@ -746,7 +750,18 @@ I hope you got the ending you wanted. This story is one that&#39;s been in the b
 
 ...and I hope to god none of us &#39;&#39;ever&#39;&#39; have to pilot a Spider made of iron, thousands of feet below the earth.
 
-(align:&quot;=&gt;&lt;=&quot;)[&#39;&#39;-Jack Moyen, 2026-&#39;&#39;]</tw-passagedata></tw-storydata>
+(align:&quot;=&gt;&lt;=&quot;)[&#39;&#39;-Jack Moyen, 2026-&#39;&#39;]</tw-passagedata><tw-passagedata pid="82" name="Sit on the bed for a moment" tags="" position="825,950" size="100,100">(set:$sanity to $sanity + 1)
+You sit on the rough bed and take a moment to breathe.
+
+You really have to get moving, but...
+
+//This is nice.//
+
+You know it&#39;s only temporary, but you could get used to this. A reliable bed to sleep in? It&#39;s a bit of a dream itself.
+
+Alright, it&#39;s time to get back to work.
+
+[[Get up.-&gt;Enter your quarters]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
